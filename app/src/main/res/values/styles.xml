@@ -13,4 +13,15 @@
         <item name="android:activatedBackgroundIndicator">@color/primary_orange</item>
         <item name="indicatorSize">30dp</item>
     </style>
+
+    <style name="text">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/sp_20</item>
+    </style>
+
+    <style name="price">
+        <item name="android:textColor">@color/primary_orange</item>
+        <item name="android:textSize">@dimen/sp_20</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 </resources>

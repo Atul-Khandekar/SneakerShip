@@ -4,4 +4,8 @@
     <string name="search">Serach</string>
     <string name="home">Home</string>
     <string name="checkout">Checkout</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title">Nike Air</string>
+    <string name="dollar">$</string>
+    <string name="price">199</string>
 </resources>
