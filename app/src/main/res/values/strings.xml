@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">SneakerShip</string>
+    <string name="sneakership">SneakerShip</string>
+    <string name="search">Serach</string>
+    <string name="home">Home</string>
+    <string name="checkout">Checkout</string>
 </resources>
