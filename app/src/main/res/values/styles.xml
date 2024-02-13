@@ -24,4 +24,19 @@
         <item name="android:textSize">@dimen/sp_20</item>
         <item name="android:textStyle">bold</item>
     </style>
+
+    <style name="title_checkout_item">
+        <item name="android:textSize">@dimen/sp_24</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:scrollHorizontally">true</item>
+    </style>
+    <style name="subtitle_checkout" parent="title_checkout_item">
+        <item name="android:textColor">@color/primary_grey</item>
+        <item name="android:textSize">@dimen/sp_20</item>
+        <item name="android:textStyle">bold</item>
+
+    </style>
 </resources>

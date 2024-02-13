@@ -8,4 +8,9 @@
     <string name="title">Nike Air</string>
     <string name="dollar">$</string>
     <string name="price">199</string>
+    <string name="order_details">Order Details</string>
+    <string name="sub_total">Sub Total :  </string>
+    <string name="taxes_and_other_charges">Taxes And Other Charges : </string>
+    <string name="total">Total :</string>
+    <string name="check_out">Check Out</string>
 </resources>

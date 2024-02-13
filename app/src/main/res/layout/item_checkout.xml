@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="item"
+            type="com.example.sneakership.model.local.CheckoutSneaker" />
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_8"
+        app:cardCornerRadius="@dimen/dp_16">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_bottom_navigation_selected"
+                android:padding="@dimen/dp_2"
+                android:src="@drawable/ic_close"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/image_sneaker"
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="@dimen/dp_0"
+                android:src="@color/dark_blue"
+                imageFromUrl="@{item.image}"
+                app:layout_constraintDimensionRatio="6,2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.5" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/title_checkout_item"
+                style="@style/title_checkout_item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{item.name}"
+                app:layout_constraintBottom_toBottomOf="@id/image_sneaker"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/image_sneaker"
+                app:layout_constraintTop_toTopOf="@id/image_sneaker"
+                app:layout_constraintVertical_bias="0.3" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/currency_unit_checkout"
+                style="@style/subtitle_checkout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dollar"
+                app:layout_constraintEnd_toStartOf="@id/price_checkout"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toEndOf="@id/image_sneaker"
+                app:layout_constraintTop_toBottomOf="@+id/title_checkout_item" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/price_checkout"
+                style="@style/subtitle_checkout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{Long.toString(item.price)}"
+                app:layout_constraintBottom_toBottomOf="@id/currency_unit_checkout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/currency_unit_checkout"
+                app:layout_constraintTop_toTopOf="@id/currency_unit_checkout" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

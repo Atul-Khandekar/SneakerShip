@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import androidx.viewpager.widget.PagerAdapter
 import com.example.sneakership.R
@@ -20,7 +21,7 @@ class DetailFragment : Fragment() {
 
     private var _binding: FragmentDetailBinding? = null
     private val args: DetailFragmentArgs by navArgs()
-    private val viewModel: MainViewModel by viewModels()
+    private lateinit var viewModel: MainViewModel
     private lateinit var viewPagerAdapter: ImageSlideAdapter
     private val binding get() = _binding!!
 
@@ -40,6 +41,7 @@ class DetailFragment : Fragment() {
 
     private fun setUpView() {
 
+        viewModel = ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
         val item = viewModel.sneakerList.value?.get(args.position)
 
         item?.images?.let{

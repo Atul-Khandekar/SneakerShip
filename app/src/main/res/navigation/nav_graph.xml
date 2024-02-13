@@ -30,4 +30,10 @@
             android:name="position"
             app:argType="integer" />
     </fragment>
+    <fragment
+        android:id="@+id/checkoutFragment"
+        android:name="com.example.sneakership.ui.CheckoutFragment"
+        android:label="CheckoutFragment"
+        tools:layout="@layout/fragment_checkout"
+        />
 </navigation>

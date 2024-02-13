@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="item"
+            type="com.example.sneakership.model.local.OrderDetails" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.CheckoutFragment"
+        android:background="@color/primary_white">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_checkout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_0"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.6"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:listitem="@layout/item_checkout" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_0"
+            app:layout_constraintTop_toBottomOf="@id/rv_checkout"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:cardElevation="@dimen/dp_16"
+            app:cardCornerRadius="@dimen/dp_16"
+            android:layout_margin="@dimen/dp_8">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/order_detail"
+                    style="@style/title_checkout_item"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp_8"
+                    android:text="@string/order_details"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/sub_total"
+                    style="@style/subtitle_checkout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dp_8"
+                    android:text="@string/sub_total"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="@id/order_detail"
+                    app:layout_constraintTop_toBottomOf="@id/order_detail" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/currency_subtotal"
+                    style="@style/subtitle_checkout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dollar"
+                    app:layout_constraintBottom_toBottomOf="@id/sub_total"
+                    app:layout_constraintStart_toEndOf="@id/sub_total"
+                    app:layout_constraintTop_toTopOf="@id/sub_total" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/price_subtotal"
+                    style="@style/subtitle_checkout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{Long.toString(item.subtotal)}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toEndOf="@id/currency_subtotal"
+                    app:layout_constraintTop_toTopOf="@id/currency_subtotal" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/taxes"
+                    style="@style/subtitle_checkout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dp_8"
+                    android:text="@string/taxes_and_other_charges"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="@id/order_detail"
+                    app:layout_constraintTop_toBottomOf="@id/sub_total" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/currency_taxes"
+                    style="@style/subtitle_checkout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dollar"
+                    app:layout_constraintBottom_toBottomOf="@id/taxes"
+                    app:layout_constraintStart_toEndOf="@id/taxes"
+                    app:layout_constraintTop_toTopOf="@id/taxes" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/price_taxes"
+                    style="@style/subtitle_checkout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{Long.toString(item.taxes)}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toEndOf="@id/currency_taxes"
+                    app:layout_constraintTop_toTopOf="@id/currency_taxes" />
+
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/total"
+                    style="@style/subtitle_checkout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dp_8"
+                    android:text="@string/total"
+                    app:layout_constraintStart_toStartOf="@id/taxes"
+                    app:layout_constraintTop_toBottomOf="@id/taxes"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintVertical_bias="0.3" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/currency_total"
+                    style="@style/price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dollar"
+                    app:layout_constraintBottom_toBottomOf="@id/total"
+                    app:layout_constraintStart_toEndOf="@id/total"
+                    app:layout_constraintTop_toTopOf="@id/total" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/price_total"
+                    style="@style/price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{Long.toString(item.total)}"
+                    app:layout_constraintBottom_toBottomOf="@id/currency_total"
+                    app:layout_constraintStart_toEndOf="@id/currency_total"
+                    app:layout_constraintTop_toTopOf="@id/currency_total" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_checkout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/primary_orange"
+                    android:text="@string/check_out"
+                    app:cornerRadius="@dimen/dp_8"
+                    app:layout_constraintBottom_toBottomOf="@id/price_total"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.2"
+                    app:layout_constraintStart_toEndOf="@id/price_total"
+                    app:layout_constraintTop_toTopOf="@id/price_total" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
