@@ -1,11 +1,13 @@
 package com.example.sneakership.adapter
 
+import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.DiffUtil
 import com.example.sneakership.R
 import com.example.sneakership.base.BaseAdapter
+import com.example.sneakership.listener.ItemClickListener
 import com.example.sneakership.model.local.Sneaker
 
-class SneakerListAdapter: BaseAdapter<Sneaker>(SneakerDiffUtil()) {
+class SneakerListAdapter(): BaseAdapter<Sneaker>(SneakerDiffUtil()) {
 
     class SneakerDiffUtil: DiffUtil.ItemCallback<Sneaker>() {
         override fun areItemsTheSame(oldItem: Sneaker, newItem: Sneaker): Boolean {

@@ -4,6 +4,8 @@ plugins {
     id("kotlin-kapt")
     id("kotlin-android")
     kotlin("kapt")
+    id("com.google.dagger.hilt.android")
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
@@ -57,6 +59,11 @@ dependencies {
     //navigation jetpack
     implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
     implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
+
+    //viewmodel
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
+
     // Feature module Support
     implementation("androidx.navigation:navigation-dynamic-features-fragment:$nav_version")
 
@@ -66,5 +73,14 @@ dependencies {
 
     //glide
     implementation("com.github.bumptech.glide:glide:4.16.0")
+
+    //viewpager
+    implementation("androidx.viewpager2:viewpager2:1.0.0")
+
+    //di
+    implementation("com.google.dagger:hilt-android:2.48.1")
+    kapt("com.google.dagger:hilt-android-compiler:2.48")
+
+    implementation("com.tbuonomo:dotsindicator:5.0")
 
 }
