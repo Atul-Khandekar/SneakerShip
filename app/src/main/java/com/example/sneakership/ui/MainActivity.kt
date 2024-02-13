@@ -1,9 +1,10 @@
-package com.example.sneakership
+package com.example.sneakership.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.widget.SearchView
+import com.example.sneakership.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

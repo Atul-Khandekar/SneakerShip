@@ -1,6 +1,9 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
+    id("kotlin-android")
+    kotlin("kapt")
 }
 
 android {
@@ -33,12 +36,15 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures {
+        dataBinding = true
+
+    }
 }
 
 dependencies {
 
     val nav_version = "2.7.7"
-
 
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
@@ -53,5 +59,12 @@ dependencies {
     implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
     // Feature module Support
     implementation("androidx.navigation:navigation-dynamic-features-fragment:$nav_version")
+
+    //retrofit and gson converter factory
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.5.0")
+
+    //glide
+    implementation("com.github.bumptech.glide:glide:4.16.0")
 
 }
