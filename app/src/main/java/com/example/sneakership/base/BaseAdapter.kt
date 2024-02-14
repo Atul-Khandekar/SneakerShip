@@ -9,8 +9,6 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sneakership.BR
 import com.example.sneakership.listener.ItemClickListener
-import com.example.sneakership.model.local.Sneaker
-
 
 abstract class BaseAdapter<T>(diffUtil: DiffUtil.ItemCallback<T>) :
     ListAdapter<T, BaseAdapter<T>.BaseViewHolder>(diffUtil) {
@@ -28,7 +26,7 @@ abstract class BaseAdapter<T>(diffUtil: DiffUtil.ItemCallback<T>) :
         holder.bind(getItem(position))
     }
 
-    open fun setDataForItems(binding: ViewDataBinding, item: T, position: Int?=null ) {
+    open fun setDataForItems(binding: ViewDataBinding, item: T, position: Int? = null) {
         binding.setVariable(BR.item, item)
         binding.executePendingBindings()
     }
@@ -39,7 +37,6 @@ abstract class BaseAdapter<T>(diffUtil: DiffUtil.ItemCallback<T>) :
         init {
             binding.root.setOnClickListener {
                 itemClickListener?.onItemClick(getItem(adapterPosition), adapterPosition)
-
             }
         }
 
@@ -47,5 +44,4 @@ abstract class BaseAdapter<T>(diffUtil: DiffUtil.ItemCallback<T>) :
             setDataForItems(binding, item, adapterPosition)
         }
     }
-
 }

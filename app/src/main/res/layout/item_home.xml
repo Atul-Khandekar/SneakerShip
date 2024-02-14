@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
             name="item"
             type="com.example.sneakership.model.local.Sneaker" />
@@ -31,9 +32,9 @@
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/image"
+                imageFromUrl="@{item.images[0]}"
                 android:layout_width="@dimen/dp_0"
                 android:layout_height="@dimen/dp_180"
-                imageFromUrl="@{item.images[0]}"
                 app:layout_constraintDimensionRatio="1,1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

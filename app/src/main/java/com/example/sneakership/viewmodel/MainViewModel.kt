@@ -81,19 +81,17 @@ class MainViewModel @Inject constructor(private val mainRepository: MainReposito
         } else {
 
             _filteredList.value = _sneakerList.value?.filter {
-                Log.d("Boolean",it.name.contains(key,true).toString())
-               it.name.contains(key,true)
+                it.name.contains(key, true)
             }
-            Log.d("SEarch", filteredList.value.toString())
         }
 
     }
 
-    fun incrementCartSize() {
+    private fun incrementCartSize() {
         _cartSize.value = _cartSize.value?.plus(1)
     }
 
-    fun decrementCartSize() {
+    private fun decrementCartSize() {
         _cartSize.value = _cartSize.value?.minus(1)
     }
 

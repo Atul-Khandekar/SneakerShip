@@ -12,13 +12,13 @@
             android:id="@+id/app_bar"
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:titleTextAppearance="@style/navigation_title_style"
-            app:title="@string/sneakership"
             android:background="@color/primary_white"
-            app:menu="@menu/main_menu" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:menu="@menu/main_menu"
+            app:title="@string/sneakership"
+            app:titleTextAppearance="@style/navigation_title_style" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_home"

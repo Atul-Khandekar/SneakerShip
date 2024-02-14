@@ -12,12 +12,11 @@
             android:id="@+id/tool_bar"
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             android:background="@color/primary_white"
-            app:navigationIcon="@drawable/ic_back"
-            />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navigationIcon="@drawable/ic_back" />
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/view_pager"
@@ -45,10 +44,10 @@
             style="@style/title_checkout_item"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_32"
             android:text="@string/title"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="@dimen/dp_32"
             app:layout_constraintTop_toBottomOf="@id/dot_indicator" />
 
         <com.google.android.material.textview.MaterialTextView
@@ -56,8 +55,8 @@
             style="@style/subtitle_checkout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp_32"
             android:layout_marginStart="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_32"
             android:text="@string/size"
             android:textSize="@dimen/sp_24"
             app:layout_constraintStart_toStartOf="parent"
@@ -114,56 +113,55 @@
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/color"
+            style="@style/subtitle_checkout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_32"
             android:text="@string/colour"
-            style="@style/subtitle_checkout"
-            app:layout_constraintTop_toBottomOf="@id/size"
-            app:layout_constraintStart_toStartOf="@id/size"
             android:textSize="@dimen/sp_24"
-            android:layout_marginTop="@dimen/dp_32"/>
+            app:layout_constraintStart_toStartOf="@id/size"
+            app:layout_constraintTop_toBottomOf="@id/size" />
 
         <com.google.android.material.chip.ChipGroup
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toEndOf="@id/color"
-            app:layout_constraintTop_toTopOf="@id/color"
+            app:chipSpacingHorizontal="@dimen/dp_16"
             app:layout_constraintBottom_toBottomOf="@id/color"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.1"
-            app:chipSpacingHorizontal="@dimen/dp_16"
-            app:singleSelection="true"
-            >
+            app:layout_constraintStart_toEndOf="@id/color"
+            app:layout_constraintTop_toTopOf="@id/color"
+            app:singleSelection="true">
 
             <com.google.android.material.chip.Chip
+                style="@style/Widget.Material3.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checkable="true"
                 android:textSize="@dimen/sp_20"
                 app:chipBackgroundColor="@color/light_blue"
-                style="@style/Widget.Material3.Chip.Filter"
                 app:chipEndPadding="@dimen/dp_16"
                 app:chipStartPadding="@dimen/dp_16"
                 app:chipStrokeWidth="@dimen/dp_2" />
 
             <com.google.android.material.chip.Chip
+                style="@style/Widget.Material3.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checkable="true"
                 android:textSize="@dimen/sp_20"
                 app:chipBackgroundColor="@color/dark_blue"
-                style="@style/Widget.Material3.Chip.Filter"
                 app:chipEndPadding="@dimen/dp_16"
                 app:chipStartPadding="@dimen/dp_16"
                 app:chipStrokeWidth="@dimen/dp_2" />
 
             <com.google.android.material.chip.Chip
+                style="@style/Widget.Material3.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checkable="true"
                 android:textSize="@dimen/sp_20"
                 app:chipBackgroundColor="@color/light_orange"
-                style="@style/Widget.Material3.Chip.Filter"
                 app:chipEndPadding="@dimen/dp_16"
                 app:chipStartPadding="@dimen/dp_16"
                 app:chipStrokeWidth="@dimen/dp_2" />
@@ -173,51 +171,50 @@
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/price_text"
+            style="@style/subtitle_checkout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/text_price"
-            style="@style/subtitle_checkout"
-            app:layout_constraintTop_toBottomOf="@id/color"
-            android:textSize="@dimen/sp_24"
-            app:layout_constraintStart_toStartOf="@id/color"
             android:layout_marginTop="@dimen/dp_32"
+            android:text="@string/text_price"
+            android:textSize="@dimen/sp_24"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0"
-            />
+            app:layout_constraintStart_toStartOf="@id/color"
+            app:layout_constraintTop_toBottomOf="@id/color" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/currency_price"
+            style="@style/price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_16"
             android:text="@string/dollar"
-            app:layout_constraintStart_toEndOf="@+id/price_text"
-            style="@style/price"
-            app:layout_constraintTop_toTopOf="@id/price_text"
             app:layout_constraintBottom_toBottomOf="@id/price_text"
-            android:layout_marginStart="@dimen/dp_16"/>
+            app:layout_constraintStart_toEndOf="@+id/price_text"
+            app:layout_constraintTop_toTopOf="@id/price_text" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/detail_price"
+            style="@style/price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/price"
-            style="@style/price"
-            app:layout_constraintTop_toTopOf="@id/currency_price"
+            app:layout_constraintBottom_toBottomOf="@id/currency_price"
             app:layout_constraintStart_toEndOf="@id/currency_price"
-            app:layout_constraintBottom_toBottomOf="@id/currency_price"/>
+            app:layout_constraintTop_toTopOf="@id/currency_price" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_checkout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/primary_orange"
             android:text="@string/checkout"
             app:cornerRadius="@dimen/dp_8"
-            android:backgroundTint="@color/primary_orange"
-            app:layout_constraintTop_toTopOf="@id/detail_price"
             app:layout_constraintBottom_toBottomOf="@id/detail_price"
-            app:layout_constraintStart_toEndOf="@id/detail_price"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.2"/>
+            app:layout_constraintHorizontal_bias="0.2"
+            app:layout_constraintStart_toEndOf="@id/detail_price"
+            app:layout_constraintTop_toTopOf="@id/detail_price" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

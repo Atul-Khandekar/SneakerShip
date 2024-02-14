@@ -10,7 +10,6 @@ import androidx.viewpager.widget.ViewPager
 import com.bumptech.glide.Glide
 import com.example.sneakership.R
 
-
 class ImageSlideAdapter(private val context: Context, private var imageList: ArrayList<String>) :
     PagerAdapter() {
     override fun getCount(): Int {

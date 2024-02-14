@@ -10,22 +10,19 @@
         android:id="@+id/homeFragment"
         android:name="com.example.sneakership.ui.HomeFragment"
         android:label="HomeFragment"
-        tools:layout="@layout/fragment_home"
-        >
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_detailFragment"
             app:destination="@id/detailFragment"
             app:popUpTo="@id/homeFragment"
-            app:popUpToSaveState="true"
-            />
+            app:popUpToSaveState="true" />
 
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.example.sneakership.ui.DetailFragment"
         android:label="DetailFragment"
-        tools:layout="@layout/fragment_detail"
-        >
+        tools:layout="@layout/fragment_detail">
         <argument
             android:name="position"
             app:argType="integer" />
@@ -34,6 +31,5 @@
         android:id="@+id/checkoutFragment"
         android:name="com.example.sneakership.ui.CheckoutFragment"
         android:label="CheckoutFragment"
-        tools:layout="@layout/fragment_checkout"
-        />
+        tools:layout="@layout/fragment_checkout" />
 </navigation>

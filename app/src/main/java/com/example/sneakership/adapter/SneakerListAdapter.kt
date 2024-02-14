@@ -8,17 +8,17 @@ import com.example.sneakership.databinding.ItemHomeBinding
 import com.example.sneakership.listener.ItemClickListener
 import com.example.sneakership.model.local.Sneaker
 
-class SneakerListAdapter(): BaseAdapter<Sneaker>(SneakerDiffUtil()) {
+class SneakerListAdapter() : BaseAdapter<Sneaker>(SneakerDiffUtil()) {
 
     open var btnClickListener: ItemClickListener<Sneaker>? = null
 
-    class SneakerDiffUtil: DiffUtil.ItemCallback<Sneaker>() {
+    class SneakerDiffUtil : DiffUtil.ItemCallback<Sneaker>() {
         override fun areItemsTheSame(oldItem: Sneaker, newItem: Sneaker): Boolean {
             return oldItem.id == newItem.id
         }
 
         override fun areContentsTheSame(oldItem: Sneaker, newItem: Sneaker): Boolean {
-            return oldItem==newItem
+            return oldItem == newItem
         }
 
     }
@@ -32,7 +32,7 @@ class SneakerListAdapter(): BaseAdapter<Sneaker>(SneakerDiffUtil()) {
         (binding as ItemHomeBinding).apply {
             btnAdd.setOnClickListener {
                 position?.let {
-                    btnClickListener?.onItemClick(item,it)
+                    btnClickListener?.onItemClick(item, it)
                 }
             }
         }

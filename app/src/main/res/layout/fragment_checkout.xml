@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="item"
             type="com.example.sneakership.model.local.OrderDetails" />
@@ -13,21 +14,21 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.CheckoutFragment"
-        android:background="@color/primary_white">
+        android:background="@color/primary_white"
+        tools:context=".ui.CheckoutFragment">
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/tool_bar"
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             android:background="@color/primary_white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:navigationIcon="@drawable/ic_back"
             app:title="@string/cart"
-            app:titleTextAppearance="@style/price"
             app:titleCentered="true"
+            app:titleTextAppearance="@style/price"
 
             />
 
@@ -45,11 +46,11 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_0"
-            app:layout_constraintTop_toBottomOf="@id/rv_checkout"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:cardElevation="@dimen/dp_16"
+            android:layout_margin="@dimen/dp_8"
             app:cardCornerRadius="@dimen/dp_16"
-            android:layout_margin="@dimen/dp_8">
+            app:cardElevation="@dimen/dp_16"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rv_checkout">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -141,9 +142,9 @@
                     android:layout_height="wrap_content"
                     android:padding="@dimen/dp_8"
                     android:text="@string/total"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="@id/taxes"
                     app:layout_constraintTop_toBottomOf="@id/taxes"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintVertical_bias="0.3" />
 
                 <com.google.android.material.textview.MaterialTextView

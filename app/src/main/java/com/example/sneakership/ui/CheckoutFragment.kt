@@ -23,10 +23,9 @@ class CheckoutFragment : Fragment() {
     private val checkoutListAdapter = CheckoutAdapter()
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
-       _binding = FragmentCheckoutBinding.inflate(layoutInflater)
+        _binding = FragmentCheckoutBinding.inflate(layoutInflater)
         return binding.root
     }
 
@@ -67,7 +66,7 @@ class CheckoutFragment : Fragment() {
         }
 
         viewModel.orderDetails.observe(viewLifecycleOwner) {
-            binding.setVariable(BR.item,it)
+            binding.setVariable(BR.item, it)
             binding.executePendingBindings()
         }
     }

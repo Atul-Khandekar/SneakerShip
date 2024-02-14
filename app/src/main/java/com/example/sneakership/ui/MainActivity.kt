@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setUpObservers() {
         viewModel.cartSize.observe(this) {
-            if (it>0) {
+            if (it > 0) {
                 bottomNavigationView.getOrCreateBadge(R.id.checkoutFragment).number = it
             }
         }
