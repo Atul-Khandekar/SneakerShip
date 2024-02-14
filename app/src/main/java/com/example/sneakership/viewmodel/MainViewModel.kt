@@ -1,5 +1,6 @@
 package com.example.sneakership.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -16,6 +17,9 @@ class MainViewModel @Inject constructor(private val mainRepository: MainReposito
     private val _sneakerList = MutableLiveData<List<Sneaker>>(emptyList())
     val sneakerList: LiveData<List<Sneaker>> get() = _sneakerList
 
+    private val _filteredList = MutableLiveData<List<Sneaker>>(emptyList())
+    val filteredList: LiveData<List<Sneaker>> get() = _filteredList
+
     private val _orderDetails = MutableLiveData<OrderDetails?>(null)
 
     val orderDetails: LiveData<OrderDetails?> get() = _orderDetails
@@ -23,12 +27,15 @@ class MainViewModel @Inject constructor(private val mainRepository: MainReposito
     private val _checkoutList = MutableLiveData<List<CheckoutSneaker>>(emptyList())
     val checkoutList: LiveData<List<CheckoutSneaker>> get() = _checkoutList
 
+    var hasSetActionBar = false
+
     init {
         getSneakerList()
     }
 
     private fun getSneakerList() {
         _sneakerList.value = _sneakerList.value?.plus(mainRepository.getSneakerList())
+        _filteredList.value = _sneakerList.value
     }
 
     fun addSneakerToCart(sneaker: Sneaker) {
@@ -57,6 +64,20 @@ class MainViewModel @Inject constructor(private val mainRepository: MainReposito
 
         subtotal?.let {
             _orderDetails.value = OrderDetails(subtotal, tax, subtotal + tax)
+        }
+
+    }
+
+    fun search(key: String?) {
+        if (key.isNullOrEmpty()) {
+            _filteredList.value = _sneakerList.value
+        } else {
+
+            _filteredList.value = _sneakerList.value?.filter {
+                Log.d("Boolean",it.name.contains(key,true).toString())
+               it.name.contains(key,true)
+            }
+            Log.d("SEarch", filteredList.value.toString())
         }
 
     }

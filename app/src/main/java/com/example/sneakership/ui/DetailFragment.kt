@@ -12,6 +12,7 @@ import androidx.navigation.fragment.navArgs
 import androidx.viewpager.widget.PagerAdapter
 import com.example.sneakership.R
 import com.example.sneakership.adapter.ImageSlideAdapter
+import com.example.sneakership.databinding.ActivityMainBinding
 import com.example.sneakership.databinding.FragmentDetailBinding
 import com.example.sneakership.viewmodel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -29,7 +30,6 @@ class DetailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
         _binding = FragmentDetailBinding.inflate(layoutInflater)
         return binding.root
     }
@@ -44,14 +44,15 @@ class DetailFragment : Fragment() {
         viewModel = ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
         val item = viewModel.sneakerList.value?.get(args.position)
 
-        item?.images?.let{
-            viewPagerAdapter = ImageSlideAdapter(requireContext(),it)
+        item?.images?.let {
+            viewPagerAdapter = ImageSlideAdapter(requireContext(), it)
         }
 
         binding.apply {
             viewPager.adapter = viewPagerAdapter
             dotIndicator.attachTo(viewPager)
         }
-    }
 
+
+    }
 }

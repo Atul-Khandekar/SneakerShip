@@ -10,19 +10,9 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.MainActivity">
-
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/app_bar"
-            android:layout_width="match_parent"
-            android:layout_height="?actionBarSize"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:titleTextAppearance="@style/navigation_title_style"
-            app:title="@string/sneakership"
-            app:menu="@menu/main_menu" />
-
+        tools:context=".ui.MainActivity"
+        android:background="@color/primary_white"
+        >
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/nav_host_fragment"
             android:name="androidx.navigation.fragment.NavHostFragment"
@@ -30,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_0"
             app:layout_constrainedHeight="true"
-            app:layout_constraintTop_toBottomOf="@id/app_bar"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:navGraph="@navigation/nav_graph"
@@ -50,7 +40,6 @@
             app:itemActiveIndicatorStyle="@style/bottom_navigation_active_indicator_style"
             android:elevation="118dp"
             app:compatShadowEnabled="true" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
