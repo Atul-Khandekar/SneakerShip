@@ -22,11 +22,6 @@ class CheckoutFragment : Fragment() {
     private lateinit var viewModel: MainViewModel
     private val checkoutListAdapter = CheckoutAdapter()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -46,6 +41,12 @@ class CheckoutFragment : Fragment() {
         checkoutListAdapter.btnClickListener = object : ItemClickListener<CheckoutSneaker> {
             override fun onItemClick(item: CheckoutSneaker, position: Int) {
                 viewModel.removeSneakerFromCart(position)
+            }
+        }
+
+        binding.apply {
+            toolBar.setNavigationOnClickListener {
+                requireActivity().onBackPressedDispatcher.onBackPressed()
             }
         }
     }

@@ -10,36 +10,35 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.MainActivity"
         android:background="@color/primary_white"
-        >
+        tools:context=".ui.MainActivity">
+
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/nav_host_fragment"
             android:name="androidx.navigation.fragment.NavHostFragment"
-            app:defaultNavHost="true"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_0"
+            app:defaultNavHost="true"
             app:layout_constrainedHeight="true"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/bottom_navigation"
             app:layout_constraintEnd_toEndOf="parent"
-            app:navGraph="@navigation/nav_graph"
-            app:layout_constraintBottom_toTopOf="@id/bottom_navigation" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navGraph="@navigation/nav_graph" />
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_navigation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:background="@color/primary_white"
-            app:menu="@menu/bottom_menu"
+            android:background="@drawable/shape_bottom_nav"
+            android:elevation="18dp"
+            app:itemActiveIndicatorStyle="@style/App.Custom.Indicator"
+            app:itemIconTint="@color/color_icon_nav"
             app:labelVisibilityMode="unlabeled"
-            app:itemIconTint="@drawable/selector_bottom_navigation"
-            app:itemActiveIndicatorStyle="@style/bottom_navigation_active_indicator_style"
-            android:elevation="118dp"
-            app:compatShadowEnabled="true" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:menu="@menu/bottom_menu" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

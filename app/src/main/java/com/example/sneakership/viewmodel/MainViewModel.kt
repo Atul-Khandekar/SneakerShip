@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.sneakership.model.local.CheckoutSneaker
 import com.example.sneakership.model.local.OrderDetails
 import com.example.sneakership.repository.MainRepository
@@ -29,6 +30,9 @@ class MainViewModel @Inject constructor(private val mainRepository: MainReposito
 
     var hasSetActionBar = false
 
+    private val _cartSize = MutableLiveData<Int>(0)
+    val cartSize: LiveData<Int> get() = _cartSize
+
     init {
         getSneakerList()
     }
@@ -48,6 +52,8 @@ class MainViewModel @Inject constructor(private val mainRepository: MainReposito
         subtotal?.let {
             _orderDetails.value = OrderDetails(subtotal, tax, subtotal + tax)
         }
+
+        incrementCartSize()
     }
 
     fun removeSneakerFromCart(position: Int) {
@@ -66,6 +72,7 @@ class MainViewModel @Inject constructor(private val mainRepository: MainReposito
             _orderDetails.value = OrderDetails(subtotal, tax, subtotal + tax)
         }
 
+        decrementCartSize()
     }
 
     fun search(key: String?) {
@@ -80,6 +87,14 @@ class MainViewModel @Inject constructor(private val mainRepository: MainReposito
             Log.d("SEarch", filteredList.value.toString())
         }
 
+    }
+
+    fun incrementCartSize() {
+        _cartSize.value = _cartSize.value?.plus(1)
+    }
+
+    fun decrementCartSize() {
+        _cartSize.value = _cartSize.value?.minus(1)
     }
 
 }

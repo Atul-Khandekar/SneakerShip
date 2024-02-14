@@ -25,6 +25,10 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="price_large" parent="price">
+        <item name="android:textSize">@dimen/sp_24</item>
+    </style>
+
     <style name="title_checkout_item">
         <item name="android:textSize">@dimen/sp_24</item>
         <item name="android:textStyle">bold</item>
@@ -38,5 +42,15 @@
         <item name="android:textSize">@dimen/sp_20</item>
         <item name="android:textStyle">bold</item>
 
+    </style>
+    <style name="chip_style" parent="Widget.MaterialComponents.Chip.Choice">
+        <item name="android:textSize">@dimen/sp_20</item>
+    </style>
+
+    <style name="App.Custom.Indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@color/primary_orange</item>
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">100%</item>
+        <item name="background">@drawable/shape_orange</item>
     </style>
 </resources>

@@ -12,7 +12,6 @@ import android.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.sneakership.R
@@ -97,6 +96,7 @@ class HomeFragment : Fragment() {
         sneakerListAdapter.btnClickListener = object : ItemClickListener<Sneaker> {
             override fun onItemClick(item: Sneaker, position: Int) {
                 viewModel.addSneakerToCart(item)
+
             }
         }
     }
@@ -107,6 +107,7 @@ class HomeFragment : Fragment() {
             this.adapter = sneakerListAdapter
             setHasFixedSize(true)
         }
+
     }
 
     private fun setUpObservers() {

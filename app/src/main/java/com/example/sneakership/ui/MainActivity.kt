@@ -12,6 +12,7 @@ import androidx.navigation.ui.NavigationUI
 import com.example.sneakership.R
 import com.example.sneakership.databinding.ActivityMainBinding
 import com.example.sneakership.viewmodel.MainViewModel
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -19,18 +20,29 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var viewModel: MainViewModel
+    private lateinit var bottomNavigationView: BottomNavigationView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setUpView()
         setUpBottomNavigation()
+        setUpObservers()
+    }
+
+    private fun setUpObservers() {
+        viewModel.cartSize.observe(this) {
+            if (it>0) {
+                bottomNavigationView.getOrCreateBadge(R.id.checkoutFragment).number = it
+            }
+        }
     }
 
     private fun setUpBottomNavigation() {
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
-        val bottomNavigationView = binding.bottomNavigation
+        bottomNavigationView = binding.bottomNavigation
         NavigationUI.setupWithNavController(bottomNavigationView, navController)
+
     }
 
     private fun setUpView() {
@@ -38,28 +50,4 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
     }
-
-//    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-//
-//        menuInflater.inflate(R.menu.main_menu, menu)
-//
-//        val menuItem = menu?.findItem(R.id.action_search)
-//        val searchView = menuItem?.actionView as SearchView
-//        searchView.queryHint = "Search here"
-//
-//        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-//            override fun onQueryTextSubmit(query: String?): Boolean {
-//                viewModel.search(query)
-//                return true
-//            }
-//
-//            override fun onQueryTextChange(newText: String?): Boolean {
-//                viewModel.search(newText)
-//                return true
-//            }
-//
-//        })
-//
-//        return super.onCreateOptionsMenu(menu)
-//    }
 }

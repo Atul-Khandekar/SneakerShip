@@ -16,6 +16,21 @@
         tools:context=".ui.CheckoutFragment"
         android:background="@color/primary_white">
 
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/tool_bar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@color/primary_white"
+            app:navigationIcon="@drawable/ic_back"
+            app:title="@string/cart"
+            app:titleTextAppearance="@style/price"
+            app:titleCentered="true"
+
+            />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_checkout"
             android:layout_width="match_parent"
@@ -24,7 +39,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_percent="0.6"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tool_bar"
             tools:listitem="@layout/item_checkout" />
 
         <androidx.cardview.widget.CardView

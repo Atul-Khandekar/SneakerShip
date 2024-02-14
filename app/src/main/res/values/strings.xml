@@ -13,4 +13,11 @@
     <string name="taxes_and_other_charges">Taxes And Other Charges : </string>
     <string name="total">Total :</string>
     <string name="check_out">Check Out</string>
+    <string name="size">Size : </string>
+    <string name="_7">7</string>
+    <string name="_8">8</string>
+    <string name="_9">9</string>
+    <string name="colour">Colour :</string>
+    <string name="cart">Cart</string>
+    <string name="text_price">Price :</string>
 </resources>

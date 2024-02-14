@@ -5,14 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
-import androidx.viewpager.widget.PagerAdapter
-import com.example.sneakership.R
 import com.example.sneakership.adapter.ImageSlideAdapter
-import com.example.sneakership.databinding.ActivityMainBinding
 import com.example.sneakership.databinding.FragmentDetailBinding
 import com.example.sneakership.viewmodel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -37,12 +32,32 @@ class DetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUpView()
+        setUpNavigationBar()
+        setUpClickListeners()
+
+    }
+
+    private fun setUpNavigationBar() {
+        binding.apply {
+            toolBar.setNavigationOnClickListener {
+                requireActivity().onBackPressedDispatcher.onBackPressed()
+            }
+        }
+    }
+
+    private fun setUpClickListeners() {
+        binding.apply {
+            btnCheckout.setOnClickListener {
+                viewModel.addSneakerToCart(viewModel.sneakerList.value!![args.position])
+            }
+        }
     }
 
     private fun setUpView() {
 
-        viewModel = ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
+        viewModel = ViewModelProvider(requireActivity())[MainViewModel::class.java]
         val item = viewModel.sneakerList.value?.get(args.position)
+        val price = item?.price
 
         item?.images?.let {
             viewPagerAdapter = ImageSlideAdapter(requireContext(), it)
@@ -51,8 +66,8 @@ class DetailFragment : Fragment() {
         binding.apply {
             viewPager.adapter = viewPagerAdapter
             dotIndicator.attachTo(viewPager)
+            detailPrice.text = price.toString()
+            productTitle.text = item?.name
         }
-
-
     }
 }

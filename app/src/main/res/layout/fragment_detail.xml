@@ -8,13 +8,24 @@
         android:layout_height="wrap_content"
         tools:context=".ui.DetailFragment">
 
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/tool_bar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@color/primary_white"
+            app:navigationIcon="@drawable/ic_back"
+            />
+
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/view_pager"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_300"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/tool_bar" />
 
         <com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator
             android:id="@+id/dot_indicator"
@@ -22,12 +33,191 @@
             android:layout_height="wrap_content"
             app:dotsColor="@color/primary_orange"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintVertical_bias="0"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/view_pager"
+            app:layout_constraintVertical_bias="0"
             app:progressMode="true"
             app:selectedDotColor="@color/primary_white" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/product_title"
+            style="@style/title_checkout_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="@dimen/dp_32"
+            app:layout_constraintTop_toBottomOf="@id/dot_indicator" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/size"
+            style="@style/subtitle_checkout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_32"
+            android:layout_marginStart="@dimen/dp_16"
+            android:text="@string/size"
+            android:textSize="@dimen/sp_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/product_title" />
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:chipSpacingHorizontal="@dimen/dp_16"
+            app:layout_constraintBottom_toBottomOf="@id/size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.3"
+            app:layout_constraintStart_toEndOf="@id/size"
+            app:layout_constraintTop_toTopOf="@id/size"
+            app:singleSelection="true"
+
+            >
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkable="true"
+                android:text="@string/_7"
+                android:textSize="@dimen/sp_20"
+                app:chipBackgroundColor="@color/bg_color_selector_chip"
+                app:chipEndPadding="@dimen/dp_16"
+                app:chipStartPadding="@dimen/dp_16"
+                app:chipStrokeWidth="@dimen/dp_2" />
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkable="true"
+                android:text="@string/_8"
+                android:textSize="@dimen/sp_20"
+                app:chipBackgroundColor="@color/bg_color_selector_chip"
+                app:chipEndPadding="@dimen/dp_16"
+                app:chipStartPadding="@dimen/dp_16"
+                app:chipStrokeWidth="@dimen/dp_2" />
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkable="true"
+                android:text="@string/_9"
+                android:textSize="@dimen/sp_20"
+                app:chipBackgroundColor="@color/bg_color_selector_chip"
+                app:chipEndPadding="@dimen/dp_16"
+                app:chipStartPadding="@dimen/dp_16"
+                app:chipStrokeWidth="@dimen/dp_2" />
+
+        </com.google.android.material.chip.ChipGroup>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/colour"
+            style="@style/subtitle_checkout"
+            app:layout_constraintTop_toBottomOf="@id/size"
+            app:layout_constraintStart_toStartOf="@id/size"
+            android:textSize="@dimen/sp_24"
+            android:layout_marginTop="@dimen/dp_32"/>
+
+        <com.google.android.material.chip.ChipGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/color"
+            app:layout_constraintTop_toTopOf="@id/color"
+            app:layout_constraintBottom_toBottomOf="@id/color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.1"
+            app:chipSpacingHorizontal="@dimen/dp_16"
+            app:singleSelection="true"
+            >
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkable="true"
+                android:textSize="@dimen/sp_20"
+                app:chipBackgroundColor="@color/light_blue"
+                style="@style/Widget.Material3.Chip.Filter"
+                app:chipEndPadding="@dimen/dp_16"
+                app:chipStartPadding="@dimen/dp_16"
+                app:chipStrokeWidth="@dimen/dp_2" />
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkable="true"
+                android:textSize="@dimen/sp_20"
+                app:chipBackgroundColor="@color/dark_blue"
+                style="@style/Widget.Material3.Chip.Filter"
+                app:chipEndPadding="@dimen/dp_16"
+                app:chipStartPadding="@dimen/dp_16"
+                app:chipStrokeWidth="@dimen/dp_2" />
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkable="true"
+                android:textSize="@dimen/sp_20"
+                app:chipBackgroundColor="@color/light_orange"
+                style="@style/Widget.Material3.Chip.Filter"
+                app:chipEndPadding="@dimen/dp_16"
+                app:chipStartPadding="@dimen/dp_16"
+                app:chipStrokeWidth="@dimen/dp_2" />
+
+        </com.google.android.material.chip.ChipGroup>
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/price_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_price"
+            style="@style/subtitle_checkout"
+            app:layout_constraintTop_toBottomOf="@id/color"
+            android:textSize="@dimen/sp_24"
+            app:layout_constraintStart_toStartOf="@id/color"
+            android:layout_marginTop="@dimen/dp_32"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/currency_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dollar"
+            app:layout_constraintStart_toEndOf="@+id/price_text"
+            style="@style/price"
+            app:layout_constraintTop_toTopOf="@id/price_text"
+            app:layout_constraintBottom_toBottomOf="@id/price_text"
+            android:layout_marginStart="@dimen/dp_16"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/detail_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/price"
+            style="@style/price"
+            app:layout_constraintTop_toTopOf="@id/currency_price"
+            app:layout_constraintStart_toEndOf="@id/currency_price"
+            app:layout_constraintBottom_toBottomOf="@id/currency_price"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_checkout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/checkout"
+            app:cornerRadius="@dimen/dp_8"
+            android:backgroundTint="@color/primary_orange"
+            app:layout_constraintTop_toTopOf="@id/detail_price"
+            app:layout_constraintBottom_toBottomOf="@id/detail_price"
+            app:layout_constraintStart_toEndOf="@id/detail_price"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.2"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
