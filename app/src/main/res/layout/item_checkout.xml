@@ -12,14 +12,18 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/dp_8"
+        android:layout_margin="@dimen/dp_16"
+        android:background="@color/primary_white"
         app:cardCornerRadius="@dimen/dp_16">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="@color/primary_white"
+            >
 
             <ImageButton
+                android:id="@+id/btn_remove"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/shape_bottom_navigation_selected"
@@ -34,7 +38,8 @@
                 android:layout_height="@dimen/dp_0"
                 android:src="@color/dark_blue"
                 imageFromUrl="@{item.image}"
-                app:layout_constraintDimensionRatio="6,2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="6,1.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintWidth_percent="0.5" />
@@ -45,6 +50,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@{item.name}"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:scrollHorizontally="true"
                 app:layout_constraintBottom_toBottomOf="@id/image_sneaker"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/image_sneaker"

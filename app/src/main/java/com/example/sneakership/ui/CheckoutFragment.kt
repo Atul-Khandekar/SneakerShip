@@ -11,6 +11,8 @@ import com.example.sneakership.BR
 import com.example.sneakership.R
 import com.example.sneakership.adapter.CheckoutAdapter
 import com.example.sneakership.databinding.FragmentCheckoutBinding
+import com.example.sneakership.listener.ItemClickListener
+import com.example.sneakership.model.local.CheckoutSneaker
 import com.example.sneakership.viewmodel.MainViewModel
 
 class CheckoutFragment : Fragment() {
@@ -32,6 +34,15 @@ class CheckoutFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setUpView()
         setUpObservers()
+        setUpClickListeners()
+    }
+
+    private fun setUpClickListeners() {
+        checkoutListAdapter.btnClickListener = object : ItemClickListener<CheckoutSneaker> {
+            override fun onItemClick(item: CheckoutSneaker, position: Int) {
+                viewModel.removeSneakerFromCart(position)
+            }
+        }
     }
 
     private fun setUpView() {
